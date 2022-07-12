@@ -2,6 +2,7 @@
 using Api.Common;
 using Application.Commands;
 using Application.Queries;
+using Domain.Entites;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers
@@ -15,9 +16,9 @@ namespace Api.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> PostTest(InsertTestRecordCommand command)
+        public async Task<IActionResult> PostTest([FromBody] Test test)
         {
-            return Ok(await Mediator.Send(command));
+            return Ok(await Mediator.Send(new InsertTestRecordCommand { Test = test }));
         }
     }
 }
