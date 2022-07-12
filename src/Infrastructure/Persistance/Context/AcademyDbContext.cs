@@ -1,4 +1,6 @@
-﻿using Application.Common.Interfaces;
+﻿using System.Threading;
+using System.Threading.Tasks;
+using Application.Common.Interfaces;
 using Domain.Entites;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,6 +14,11 @@ namespace Infrastructure.Persistance.Context
         }
 
         public DbSet<Test> Tests { get; set; }
+
+        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        {
+            return base.SaveChangesAsync(cancellationToken);
+        }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
