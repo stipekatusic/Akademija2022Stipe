@@ -1,11 +1,11 @@
-﻿using Domain.Entites;
+﻿using Application.Common.Dtos;
 using FluentValidation;
 
 namespace Api.Common.Validation
 {
-    public class TestValidator : AbstractValidator<Test>
+    public class TestDtoValidator : AbstractValidator<TestDto>
     {
-        public TestValidator()
+        public TestDtoValidator()
         {
             RuleFor(x => x.Text)
                 .NotEmpty()

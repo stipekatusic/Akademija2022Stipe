@@ -1,9 +1,9 @@
-﻿using System.Threading.Tasks;
-using Api.Common;
+﻿using Api.Common;
 using Application.Commands;
+using Application.Common.Dtos;
 using Application.Queries;
-using Domain.Entites;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace Api.Controllers
 {
@@ -16,9 +16,9 @@ namespace Api.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> PostTest([FromBody] Test test)
+        public async Task<IActionResult> PostTest([FromBody] TestDto testDto)
         {
-            return Ok(await Mediator.Send(new InsertTestRecordCommand { Test = test }));
+            return Ok(await Mediator.Send(new InsertTestRecordCommand { TestDto = testDto }));
         }
     }
 }
