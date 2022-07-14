@@ -11,11 +11,11 @@ using Domain.Entites;
 
 namespace Application.Commands
 {
-    public class InsertTestRecordCommand : IRequest<Unit>
+    public class InsertTestRecordCommand : IRequest<Test>
     {
         public TestDto TestDto { get; set; }
 
-        public class InsertTestRecordCommandHandler : IRequestHandler<InsertTestRecordCommand,Unit>
+        public class InsertTestRecordCommandHandler : IRequestHandler<InsertTestRecordCommand,Test>
         {
             private readonly IAcademyDbContext _context;
             private readonly ILogger<GetTestRecordsQuery> _logger;
@@ -29,7 +29,7 @@ namespace Application.Commands
             }
 
             
-            public async Task<Unit> Handle(InsertTestRecordCommand request, CancellationToken cancellationToken)
+            public async Task<Test> Handle(InsertTestRecordCommand request, CancellationToken cancellationToken)
             {
                 _logger.LogInformation("Inserting test record!");
 
@@ -40,6 +40,8 @@ namespace Application.Commands
                     await _context.Tests.AddAsync(test, cancellationToken);
 
                     await _context.SaveChangesAsync(cancellationToken);
+
+                    return test;
                 }
                 catch (Exception e)
                 {
@@ -47,7 +49,6 @@ namespace Application.Commands
                     throw;
                 }
                 
-                return Unit.Value;
             }
         }
     }
