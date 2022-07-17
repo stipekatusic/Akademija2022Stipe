@@ -17,6 +17,9 @@ namespace Infrastructure.Persistance.Context
         }
 
         public DbSet<Test> Tests { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Room> Rooms { get; set; }
+        public DbSet<Reservation> Reservations { get; set; }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {

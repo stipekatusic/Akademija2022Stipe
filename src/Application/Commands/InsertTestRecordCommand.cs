@@ -41,6 +41,27 @@ namespace Application.Commands
 
                     await _context.SaveChangesAsync(cancellationToken);
 
+                    //test for reservations
+
+                    var user = new User();
+                    user.FirstName = "Stipe";
+                    user.LastName = "Katusic";
+
+                    await _context.Users.AddAsync(user, cancellationToken);
+
+                    var room = new Room();
+                    room.Name = "Galactica";
+
+                    await _context.Rooms.AddAsync(room, cancellationToken);
+
+                    var reservation = new Reservation();
+                    reservation.User = user;
+                    reservation.Room = room;
+
+                    await _context.Reservations.AddAsync(reservation, cancellationToken);
+
+                    await _context.SaveChangesAsync(cancellationToken);
+
                     return test;
                 }
                 catch (Exception e)
