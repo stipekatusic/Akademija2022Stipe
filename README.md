@@ -24,4 +24,4 @@ Projekt u sklopu predavanja KING ICT Akademije - "**Backend Arhitektura Sustava*
  - Provjeriti konekcijski string na bazu podataka (Api/appsettings.json)
  - Provjeriti dali se projekt uredno builda i pokreæe
  - U Visual Studiu otvoriti "Package Manager Console" i pokrenuti migracije na bazi naredbom "Update-Database"
- - Provjeriti da se kreirala baza podataka "Akademija" i da sadrži tablice "dbo._EFMigrationsHistory" i dbo.Tests
+ - Provjeriti da se kreirala baza podataka "Akademija" i da sadrži tablice "dbo._EFMigrationsHistory" i "dbo.Tests"
