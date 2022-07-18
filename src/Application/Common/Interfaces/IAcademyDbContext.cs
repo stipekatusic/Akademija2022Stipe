@@ -7,8 +7,8 @@ namespace Application.Common.Interfaces
 {
     public interface IAcademyDbContext
     {
-        public DbSet<Test> Tests { get; set; }
-
+        public DbSet<User> Users{ get; set; }
+        public DbSet<Test> Tests{ get; set; }
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     }
 }
